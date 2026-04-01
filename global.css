@@ -10,7 +10,7 @@
   font-family: 'Bebas Neue';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/bebas-neue-v16-latin-regular.woff2') format('woff2'); 
+  src: url('./fonts/bebas-neue-v16-latin-regular.woff2') format('woff2'); 
 }
 
 /* ibm-plex-mono-200 - latin */
@@ -19,7 +19,7 @@
   font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 200;
-  src: url('/fonts/ibm-plex-mono-v20-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./fonts/ibm-plex-mono-v20-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* ibm-plex-mono-300 - latin */
@@ -28,7 +28,7 @@
   font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 300;
-  src: url('/fonts/ibm-plex-mono-v20-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./fonts/ibm-plex-mono-v20-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* ibm-plex-mono-regular - latin */
@@ -37,7 +37,7 @@
   font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/ibm-plex-mono-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./fonts/ibm-plex-mono-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* ibm-plex-mono-500 - latin */
@@ -46,7 +46,7 @@
   font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 500;
-  src: url('/fonts/ibm-plex-mono-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./fonts/ibm-plex-mono-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* ibm-plex-mono-600 - latin */
@@ -55,7 +55,7 @@
   font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 600;
-  src: url('/fonts/ibm-plex-mono-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./fonts/ibm-plex-mono-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* ibm-plex-mono-700 - latin */
@@ -64,7 +64,7 @@
   font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 700;
-  src: url('/fonts/ibm-plex-mono-v20-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./fonts/ibm-plex-mono-v20-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 

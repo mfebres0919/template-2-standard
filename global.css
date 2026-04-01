@@ -82,8 +82,7 @@ a { text-decoration: none; color: inherit; }
   --chalk: #F2F0FF;
   --chalk2: #E2DFFF;
   --pad: clamp(20px, 5vw, 80px);
-  --nav-h: 68px;
-}
+  --nav-h: calc(68px + env(safe-area-inset-top));}
 
 /* ── BODY ── */
 body {
@@ -109,7 +108,7 @@ nav {
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(191,95,255,.15);
   transition: background .4s;
-  padding-top: env(safe-area-inset-top); /* ← add this */
+  padding-top: env(safe-area-inset-top);
 }
 
 /* ── BUTTONS ── */

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flawless Wig Studio | Template 2</title>
+
+<!-- Preload critical above-fold images -->
+<link rel="preload" as="image" href="images/images-webp/img7-hero-d.webp" type="image/webp" media="(min-width: 601px)">
+<link rel="preload" as="image" href="images/images-webp/img7-hero-m.webp" type="image/webp" media="(max-width: 600px)">
+
+<!-- Preload fonts -->
+<link rel="preload" href="fonts/bebas-neue-v16-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Global styles -->
+<link rel="stylesheet" href="global.css">
+
+
+<!-- Page styles -->
+<link rel="stylesheet" href="styles.css">
+
+
+<style>
+.bk-modal-overlay{
+  position:fixed;inset:0;z-index:600;
+  display:flex;align-items:center;justify-content:center;
+  padding:18px;
+  background:rgba(2,1,4,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  opacity:0;visibility:hidden;
+  transition:opacity .35s,visibility .35s;
+}
+.bk-modal-overlay.open{opacity:1;visibility:visible;}
+.bk-modal{
+  width:100%;max-width:520px;
+  background:var(--ink2);
+  border:1px solid rgba(191, 95, 255, 0.562);
+  box-shadow:0 0 50px rgba(191,95,255,.1),0 32px 80px rgba(0,0,0,.7);
+  padding:clamp(48px,6vw,72px) clamp(28px,5vw,56px);
+  position:relative;text-align:center;
+  transform:translateY(22px) scale(.97);
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+.bk-modal-overlay.open .bk-modal{transform:translateY(0) scale(1);}
+.bk-modal-close{
+  position:absolute;top:14px;right:14px;
+  width:28px;height:28px;
+  background:transparent;color:rgba(242, 240, 255, 0.642);
+  font-size:.9rem;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .25s;font-family:inherit;
+}
+.bk-modal-close:hover{border-color:var(--pu);color:var(--pu);}
+.bk-modal-label{
+  font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--pu);font-weight:700;margin-bottom:14px;
+  font-family:'IBM Plex Mono',monospace;
+}
+.bk-modal-label::before{content:'// ';}
+.bk-modal-h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,6vw,3.5rem);
+  color:var(--chalk);letter-spacing:.04em;
+  text-transform:uppercase;line-height:1.05;
+}
+.bk-modal-h2 em{font-style:normal;color:var(--pu);text-shadow:0 0 9px rgba(191,95,255,.22);}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="pageLoader">
+  <div class="loader-logo loader-2">Flawless<em>Wig</em> Studio</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- PROMO BANNER -->
+<!-- <div class="promo-banner" id="promoBanner">
+  <p class="promo-text">&#x2726; Limited Time &mdash; <strong>FLAWLESS10</strong> for 10% off your first install &#x2726;</p>
+  <span class="promo-cta" id="promoCta">Book Now</span>
+  <button class="promo-x" id="promoX">&#x2715;</button>
+</div> -->
+
+<!-- WAITLIST MODAL -->
+<!-- EMAIL POPUP — Flodesk handles rendering via the script above -->
+<!-- The fd('form') call at the top injects Flodesk's own popup overlay automatically -->
+
+<!-- SCROLL TO TOP -->
+<button class="float-top" id="floatTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- LIGHTBOX injected via JS -->
+
+
+<!-- BOOKING MODAL -->
+<div class="bk-modal-overlay" id="bkOverlay">
+  <div class="bk-modal">
+    <button class="bk-modal-close" id="bkClose">&#x2715;</button>
+    <div class="bk-modal-label">Appointments</div>
+    <h2 class="bk-modal-h2"><em>Acuity</em> Booking<br>Goes Here</h2>
+  </div>
+</div>
+
+
+
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#hero" class="mm-l">Home</a>
+  <a href="#services" class="mm-l">Services</a>
+    <a href="#gallery" class="mm-l">Gallery</a>
+  <a href="#policies" class="mm-l">Policies</a>
+  <a href="#about" class="mm-l">About Me</a>
+  <a href="#contact" class="mm-l">Contact</a>
+  <button class="btn btn-pu" id="mobBookBtn">Book Now</button>
+</div>
+
+<!-- NAV — centered logo -->
+<nav id="nav">
+  <ul class="nav-left">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <div class="nav-logo-center">Flawless<em>Wig</em> Studio</div>
+  <ul class="nav-right">
+    <li><a href="#policies">Policies</a></li>    
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li class="nav-book-right"><button class="btn btn-pu" id="navBook" style="padding:7px 16px;font-size:.48rem;">Book Now</button></li>
+  </ul>
+  <div class="ham" id="ham"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ═══ HERO — SPLIT SCREEN ═══ -->
+<section class="hero">
+  <!-- LEFT: text -->
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="badge-dot"></span>Premium Wig Studio</div>
+    <h1>Flawless<br>Wig<br><span class="line2">Installs</span></h1>
+    <p class="hero-sub">Seamless lace melts &amp; flawless installs. Book your transformation today.</p>
+    <div class="hero-btns">
+      <button class="btn btn-pu" id="heroBook">Book Now</button>
+      <a href="#gallery" class="btn btn-outline-chalk">View Gallery</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">500+</div><div class="stat-l">Happy Clients</div></div>
+      <div><div class="stat-n">5&#9733;</div><div class="stat-l">Avg. Rating</div></div>
+      <div><div class="stat-n">4 Yrs</div><div class="stat-l">Experience</div></div>
+    </div>
+  </div>
+  <!-- RIGHT: image -->
+  <div class="hero-right">
+    <picture>
+    <source media="(max-width: 600px)" srcset="images/images-webp/img7-hero-m.webp" type="image/webp">
+    <source media="(min-width: 601px)" srcset="images/images-webp/img7-hero-d.webp" type="image/webp">
+    <img src="images/images-og/img7-hero-d.jpeg" alt="Flawless wig install" width="960" height="1280" decoding="async">
+  </picture>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Frontal Wig Install</span><span class="sep">&#x2726;</span>
+    <span>Lace Melt</span><span class="sep">&#x2726;</span>
+    <span>Closure Install</span><span class="sep">&#x2726;</span>
+    <span>Wig Revamp</span><span class="sep">&#x2726;</span>
+    <span>Custom Styling</span><span class="sep">&#x2726;</span>
+    <span>Body Wave</span><span class="sep">&#x2726;</span>
+    <span>Silk Press</span><span class="sep">&#x2726;</span>
+    <span>Frontal Wig Install</span><span class="sep">&#x2726;</span>
+    <span>Lace Melt</span><span class="sep">&#x2726;</span>
+    <span>Closure Install</span><span class="sep">&#x2726;</span>
+    <span>Wig Revamp</span><span class="sep">&#x2726;</span>
+    <span>Custom Styling</span><span class="sep">&#x2726;</span>
+    <span>Body Wave</span><span class="sep">&#x2726;</span>
+    <span>Silk Press</span><span class="sep">&#x2726;</span>
+  </div>
+</div>
+
+
+<!-- ═══ SERVICES — HORIZONTAL SCROLL ═══ -->
+<section class="services" id="services">
+  <div class="svc-header">
+    <div class="svc-header-left">
+      <div class="eyebrow">Our Services</div>
+      <h2 class="svc-h2">What We<br><em>Offer</em></h2>
+    </div>
+    <p class="svc-header-right">Every install is tailored to you.</p>
+  </div>
+  <div class="svc-scroll-wrap" id="svcScrollWrap">
+    <div class="svc-track">
+      <div class="svc-card" id="svcCard1">
+        <picture>
+          <source media="(max-width: 600px)" srcset="images/images-webp/img6-services-m.webp" type="image/webp">
+          <source media="(min-width: 601px)" srcset="images/images-webp/img6-services-d.webp" type="image/webp">
+          <img src="images/images-og/img6-services-d.jpeg" alt="Frontal Wig Install" width="680" height="960" loading="lazy" decoding="async">
+        </picture>
+        <div class="svc-veil"></div>
+        <div class="svc-body">
+          <div class="svc-num">01 / Service</div>
+          <div class="svc-title">Frontal Wig Install</div>
+          <div class="svc-price">Starting at $170</div>
+          <button class="svc-book-btn">Book This</button>
+        </div>
+      </div>
+      <div class="svc-card" id="svcCard2">
+        <picture>
+          <source media="(max-width: 600px)" srcset="images/images-webp/img3-services-m.webp" type="image/webp">
+          <source media="(min-width: 601px)" srcset="images/images-webp/img3-services-d.webp" type="image/webp">
+          <img src="images/images-og/img3-services-d.jpeg" alt="Closure Install" width="680" height="960" loading="lazy" decoding="async">
+        </picture>
+        <div class="svc-veil"></div>
+        <div class="svc-body">
+          <div class="svc-num">02 / Service</div>
+          <div class="svc-title">Closure Install</div>
+          <div class="svc-price">Starting at $150</div>
+          <button class="svc-book-btn">Book This</button>
+        </div>
+      </div>
+      <div class="svc-card" id="svcCard3">
+        <picture>
+          <source media="(max-width: 600px)" srcset="images/images-webp/img1-services-m.webp" type="image/webp">
+          <source media="(min-width: 601px)" srcset="images/images-webp/img1-services-d.webp" type="image/webp">
+          <img src="images/images-og/img1-services-d.jpeg" alt="Wig Revamp" width="680" height="960" loading="lazy" decoding="async">
+        </picture>
+        <div class="svc-veil"></div>
+        <div class="svc-body">
+          <div class="svc-num">03 / Service</div>
+          <div class="svc-title">Wig Revamp</div>
+          <div class="svc-price">Starting at $190</div>
+          <button class="svc-book-btn">Book This</button>
+        </div>
+      </div>
+      <div class="svc-card" id="svcCard4">
+        <picture>
+          <source media="(max-width: 600px)" srcset="images/images-webp/img10-services-m.webp" type="image/webp">
+          <source media="(min-width: 601px)" srcset="images/images-webp/img10-services-d.webp" type="image/webp">
+          <img src="images/images-og/img10-services-d.jpeg" alt="Custom Styling" width="680" height="960" loading="lazy" decoding="async">
+        </picture>
+        <div class="svc-veil"></div>
+        <div class="svc-body">
+          <div class="svc-num">04 / Service</div>
+          <div class="svc-title">Custom Styling</div>
+          <div class="svc-price">Price varies</div>
+          <button class="svc-book-btn">Book This</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="svc-drag-hint">Drag to explore all services</div>
+  <!-- Mobile / tablet arrow nav -->
+  <div class="svc-nav">
+    <button class="svc-arr" id="svcPrev" aria-label="Previous service">&#8592;</button>
+    <button class="svc-arr" id="svcNext" aria-label="Next service">&#8594;</button>
+    <div class="svc-nav-dots" id="svcDots"></div>
+  </div>
+</section>
+
+
+<!-- ═══ GALLERY ═══ -->
+<section class="gallery" id="gallery">
+  <div class="gal-inner">
+    <div class="gal-panel">
+      <div class="eyebrow">Our Work</div>
+      <h2 class="gal-h2">The<br><em>Gallery</em></h2>
+      <p class="gal-sub">Every install is a work of art. Browse our portfolio and see the transformations for yourself — seamless lace, flawless finishes, every time.</p>
+      <div class="gal-counter">Photo <em id="galCur">01</em> / <span id="galTotal">16</span></div>
+      <div class="gal-nav">
+        <button class="gal-arrow" id="galPrev">&#8592;</button>
+        <button class="gal-arrow" id="galNext">&#8594;</button>
+      </div>
+      <div class="gal-dots" id="galDots"></div>
+    </div>
+    <div class="gal-slideshow">
+      <div class="gal-track-wrap">
+        <div class="gal-track" id="galTrack">
+          <div class="gal-slide active-slide" data-src="images/images-webp/img2-gallery-d.webp"><img src="images/images-webp/img2-gallery-d.webp" alt="Gallery 1" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">01</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(0)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img3-gallery-d.webp"><img src="images/images-webp/img3-gallery-d.webp" alt="Gallery 2" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">02</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(1)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img5-gallery-d.webp"><img src="images/images-webp/img5-gallery-d.webp" alt="Gallery 3" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">03</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(2)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img8-gallery-d.webp"><img src="images/images-webp/img8-gallery-d.webp" alt="Gallery 4" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">04</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(3)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img9-gallery-d.webp"><img src="images/images-webp/img9-gallery-d.webp" alt="Gallery 5" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">05</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(4)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img10-gallery-d.webp"><img src="images/images-webp/img10-gallery-d.webp" alt="Gallery 6" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">06</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(5)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img1-gallery-d.webp"><img src="images/images-webp/img1-gallery-d.webp" alt="Gallery 7" style="object-position:top center" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">07</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(6)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img4-gallery-d.webp"><img src="images/images-webp/img4-gallery-d.webp" alt="Gallery 8" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">08</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(7)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img6-gallery-d.webp"><img src="images/images-webp/img6-gallery-d.webp" alt="Gallery 9" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">09</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(8)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img7-gallery-d.webp"><img src="images/images-webp/img7-gallery-d.webp" alt="Gallery 10" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">10</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(9)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img11-gallery-d.webp"><img src="images/images-webp/img11-gallery-d.webp" alt="Gallery 11" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">11</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(10)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img12-gallery-d.webp"><img src="images/images-webp/img12-gallery-d.webp" alt="Gallery 12" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">12</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(11)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img13-gallery-d.webp"><img src="images/images-webp/img13-gallery-d.webp" alt="Gallery 13" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">13</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(12)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img14-gallery-d.webp"><img src="images/images-webp/img14-gallery-d.webp" alt="Gallery 14" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">14</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(13)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img15-gallery-d.webp"><img src="images/images-webp/img15-gallery-d.webp" alt="Gallery 15" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">15</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(14)">View Photo</button></div></div>
+          <div class="gal-slide" data-src="images/images-webp/img16-gallery-d.webp"><img src="images/images-webp/img16-gallery-d.webp" alt="Gallery 16" loading="lazy" decoding="async"><div class="gal-slide-veil"><span class="gal-slide-num">16</span></div><div class="gal-slide-overlay"><button class="gal-expand" onclick="openLb(15)">View Photo</button></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="gal-mobile-controls">
+    <div class="gal-mob-counter">Photo <em id="galCurMob">01</em></div>
+    <button class="gal-arrow" id="galPrevMob">&#8592;</button>
+    <button class="gal-arrow" id="galNextMob">&#8594;</button>
+    <div class="gal-mob-dots" id="galDotsMob"></div>
+  </div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<div class="cta-band">
+  <div class="cta-band-content">
+    <h2>Ready To Look<br><span>Absolutely Flawless?</span></h2>
+    <p>Secure your appointment today and experience seamless lace and long-lasting results.</p>
+  </div>
+  <div class="cta-band-btn">
+    <button class="btn btn-ink" id="ctaBook" style="padding:15px 36px;font-size:.56rem;">Book Appointment</button>
+  </div>
+</div>
+
+
+<!-- ═══ POLICIES ═══ -->
+<section class="policies" id="policies">
+  <div class="pol-bg">
+    <picture>
+      <source media="(max-width: 600px)" srcset="images/images-webp/img9-gallery-m.webp" type="image/webp">
+      <source media="(min-width: 601px)" srcset="images/images-webp/img9-gallery-d.webp" type="image/webp">
+      <img src="images/images-og/img9-gallery-d.jpeg" alt="" aria-hidden="true" width="1200" height="800" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <div class="pol-overlay"></div>
+  <div class="pol-rule"></div>
+  <div class="pol-inner">
+    <!-- header -->
+    <div class="pol-header">
+      <div>
+        <div class="pol-eyebrow">Before You Come In</div>
+        <h2 class="pol-h2">Studio<br><em>Policies</em></h2>
+      </div>
+      <p class="pol-header-sub">A few things to know before your appointment — so we can give you the best experience possible.</p>
+    </div>
+    <!-- cards -->
+    <div class="pol-cards">
+      <div class="pol-card">
+        <div class="pol-card-num">01</div>
+        <div class="pol-card-title">Deposit Required</div>
+        <p class="pol-card-text">A $25 non-refundable deposit is required to confirm your booking. This goes toward your total balance on the day of your appointment.</p>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-num">02</div>
+        <div class="pol-card-title">Cancellations & Reschedules</div>
+        <p class="pol-card-text">Cancel or reschedule at least 24 hours in advance to avoid losing your deposit. Use the link in your confirmation email to make changes.</p>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-num">03</div>
+        <div class="pol-card-title">Grace Period</div>
+        <p class="pol-card-text">There is a 10-minute grace period for late arrivals. Appointments may be cancelled after this point and the deposit will be forfeited.</p>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-num">04</div>
+        <div class="pol-card-title">Come Prepared</div>
+        <p class="pol-card-text">Please arrive with your inspiration photos ready and your wig clean, pre-plucked, and pre-bleached. This helps us make the most of your appointment time.</p>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-num">05</div>
+        <div class="pol-card-title">No Extra Guests</div>
+        <p class="pol-card-text">To maintain a calm studio environment, please do not bring additional guests unless previously approved. Children must be accompanied by another adult.</p>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-num">06</div>
+        <div class="pol-card-title">Questions?</div>
+        <p class="pol-card-text">If you're unsure about anything before your visit, reach out via the contact form below. We're happy to help you prepare for a smooth appointment.</p>
+      </div>
+    </div>
+    <!-- bottom CTA -->
+    <div class="pol-cta-row">
+      <p class="pol-cta-note">Ready to book? Spots fill up fast — <strong>secure yours now.</strong></p>
+      <button class="btn btn-pu" id="polBook">Book Appointment</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ABOUT ME ═══ -->
+<section class="about" id="about">
+  <div class="about-inner">
+
+    <!-- LEFT: photo -->
+    <div class="about-img-wrap">
+      <div class="about-img-frame">
+        <picture>
+          <source media="(max-width: 600px)" srcset="images/images-webp/img2-about-m.webp" type="image/webp">
+          <source media="(min-width: 601px)" srcset="images/images-webp/img2-about-d.webp" type="image/webp">
+          <img src="images/images-og/img2-about-d.jpeg" alt="Flawless Wig Studio stylist" width="800" height="1066" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">5+</div>
+        <div class="about-badge-label">Years of<br>Excellence</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: content -->
+    <div class="about-content">
+      <div class="about-eyebrow">Meet Your Stylist</div>
+      <h2 class="about-h2">The Artist<br>Behind <em>Flawless</em></h2>
+      <div class="about-name">✦ Founder &amp; Lead Stylist</div>
+      <p class="about-bio">
+        I specialize in <strong>undetectable lace melts</strong>, seamless installs, and long-lasting results. Every client leaves looking and feeling their absolute best — that's the standard.
+      </p>
+
+      <!-- credentials stats -->
+      <div class="about-stats">
+        <div class="about-stat-item">
+          <span class="about-stat-n">5+</span>
+          <span class="about-stat-l">Years Experience</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-n">500+</span>
+          <span class="about-stat-l">Installs Done</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-n">5.0</span>
+          <span class="about-stat-l">Google Rating</span>
+        </div>
+        <div class="about-stat-item">
+          <span class="about-stat-n">47+</span>
+          <span class="about-stat-l">Reviews</span>
+        </div>
+      </div>
+
+      <!-- social links -->
+      <div class="about-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="about-social-link">
+          <span class="about-social-icon">&#x1F4F7;</span> Instagram
+        </a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener" class="about-social-link">
+          <span class="about-social-icon">&#x266B;</span> TikTok
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="about-social-link">
+          <span class="about-social-icon">&#x1F4AC;</span> Facebook
+        </a>
+      </div>
+
+      <button class="btn btn-pu" onclick="scrollToServices()" style="align-self:flex-start;padding:12px 28px">Book With Me</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CONTACT — SPLIT BG ═══ -->
+<section class="contact" id="contact">
+  <!-- DARK SIDE: info -->
+  <div class="contact-dark">
+    <div class="contact-dark-bg">
+      <picture>
+        <source media="(max-width: 600px)" srcset="images/images-webp/salon2-bg-m.webp" type="image/webp">
+        <source media="(min-width: 601px)" srcset="images/images-webp/salon2-bg-d.webp" type="image/webp">
+        <img src="images/images-og/salon2-bg-d.jpeg" alt="" aria-hidden="true" width="960" height="700" loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="contact-dark-overlay"></div>
+    <div class="eyebrow">Get In Touch</div>
+    <h2 class="contact-h2">Have a<br><em>Question?</em></h2>
+    <p class="contact-desc">Questions? Send us a message below.</p>
+    <div class="contact-info">
+      <div class="c-row"><div class="c-ico">&#9993;</div><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="492f25283e252c3a3a3e202e3a3d3c2d2026092e24282025672a2624">[email&#160;protected]</a></div>
+      <div class="c-row"><div class="c-ico">&#9742;</div>(877) 297-5454</div>
+      <div class="c-row"><div class="c-ico">&#9679;</div>6391 Elgin Celina, Delaware</div>
+    </div>
+  </div>
+  <!-- LIGHT SIDE: form -->
+  <div class="contact-light">
+    <div class="eyebrow">Send a Message</div>
+    <div class="contact-form">
+      <div class="field"><label>Your Name</label><input type="text" placeholder="e.g. Jasmine Smith" autocomplete="name"></div>
+      <div class="field"><label>Email</label><input type="email" placeholder="you@email.com" autocomplete="email"></div>
+      <div class="field"><label>Your Question</label><textarea placeholder="What would you like to know?" style="min-height:130px"></textarea></div>
+      <button class="send-btn">Send Message &#8594;</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER — MINIMAL ═══ -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <span class="foot-logo">Flawless<em>Wig</em> Studio</span>
+      <p class="foot-desc">Flawless installs. Every time.</p>
+      <button class="btn btn-pu" id="navBook" style="padding:7px 16px;font-size:.48rem;">Book Now</button>
+    </div>
+    <div class="foot-col"><h4>Pages</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#policies">Policies</a></li>     
+        <li><a href="#about">About Me</a></li>
+        </li><li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col"><h4>Info</h4><ul><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Payment Methods</a></li><li><a href="#">Policies</a></li><li><a href="#">Returns</a></li></ul></div>
+    <div class="foot-col"><h4>Social</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li><li><a href="#">YouTube</a></li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">&copy; 2026 Flawless Wig Studio. All rights reserved.</span>
+    <div class="socials">
+      <a href="#" class="soc-btn">ig</a><a href="#" class="soc-btn">tk</a>
+      <a href="#" class="soc-btn">fb</a><a href="#" class="soc-btn">yt</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+
+
+
+
+<!-- ═══ VAGARO EMBEDS — off-screen so iframes initialize on page load ═══ --></div></div></div></div>
+</div></div>
+
+</body>
+</html>

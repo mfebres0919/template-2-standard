@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an Appointment | Flawless Wig Studio</title>
+<link rel="stylesheet" href="global.css">
+<style>
+.booking-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--nav-h);
+  text-align: center;
+  gap: 16px;
+}
+.bk-label {
+  font-size: .5rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--pu); font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.bk-label::before { content: '// '; }
+.bk-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--chalk); letter-spacing: .04em; text-transform: uppercase; line-height: 1;
+}
+.bk-h1 em { font-style: normal; color: var(--pu); }
+.bk-back {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: .6rem; letter-spacing: .58em; text-transform: uppercase;
+  color: rgba(242, 240, 255, 0.967); font-family: 'IBM Plex Mono', monospace;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: color .25s;
+}
+.bk-back:hover { color: var(--pu-lt); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <ul class="nav-left">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#gallery">Gallery</a></li>
+    <li><a href="index.html#policies">Policies</a></li>
+  </ul>
+  <div class="nav-logo-center">Flawless<em>Wig</em> Studio</div>
+  <ul class="nav-right">
+    <li><a href="index.html#contact">Contact</a></li>
+    <li class="nav-book-right"><a href="booking.html" class="btn btn-pu" style="padding:7px 16px;font-size:.48rem;">Book Now</a></li>
+  </ul>
+  <div class="ham" id="ham"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#gallery">Gallery</a>
+  <a href="index.html#policies">Policies</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<main class="booking-page">
+  <div class="bk-label">Appointments</div>
+  <h1 class="bk-h1"><em>Acuity</em> Booking<br>Goes Here</h1>
+  <a href="index.html" class="bk-back">&#8592; Back to Home</a>
+</main>
+
+<script>
+var nav = document.getElementById('nav');
+var ham = document.getElementById('ham');
+var mobMenu = document.getElementById('mobMenu');
+window.addEventListener('scroll', function(){ nav.classList.toggle('solid', window.scrollY > 50); });
+ham.addEventListener('click', function(){
+  ham.classList.toggle('open'); mobMenu.classList.toggle('open');
+  document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mob-menu a').forEach(function(a){
+  a.addEventListener('click', function(){
+    ham.classList.remove('open'); mobMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+</script>
+
+</body>
+</html>

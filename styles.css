@@ -788,12 +788,12 @@ nav.solid{background:rgba(6,6,10,.99)}
   padding:clamp(48px,8vw,90px) var(--pad);
   display:flex;flex-direction:column;justify-content:center;
 }
-.contact-light .eyebrow{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--pu-dk);font-weight:700;margin-bottom:16px;font-family:'IBM Plex Mono',monospace}
+.contact-light .eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:black;font-weight:700;margin-bottom:16px;font-family:'IBM Plex Mono',monospace}
 .contact-light .eyebrow::before{content:'// '}
 .contact-form{display:flex;flex-direction:column;gap:14px}
-.field label{display:block;font-size:.46rem;letter-spacing:.3em;text-transform:uppercase;color:var(--pu-dk);margin-bottom:5px;font-weight:700;font-family:'IBM Plex Mono',monospace}
+.field label{display:block;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:black;margin-bottom:5px;font-weight:700;font-family:'IBM Plex Mono',monospace}
 .field input,.field textarea{width:100%;background:rgba(6,6,10,.06);border:1px solid rgba(191,95,255,.25);padding:12px 14px;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:.75rem;outline:none;transition:border-color .25s,background .25s;border-radius:0}
-.field input::placeholder,.field textarea::placeholder{color:rgba(6,6,10,.3)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(6, 6, 10, 0.529)}
 .field input:focus,.field textarea:focus{border-color:var(--pu-dk);background:rgba(191,95,255,.05)}
 .field textarea{resize:none;height:108px}
 .send-btn{align-self:flex-start;background:var(--ink);color:var(--chalk);padding:13px 28px;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;transition:all .25s}
